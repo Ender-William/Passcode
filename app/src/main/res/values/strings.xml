@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Passcode</string>
+
+    <!--  登录页面  -->
+    <string name="login_button">登录</string>
+    <string name="LoginUserNameStr">请输入用户名</string>
+    <string name="LoginPwdStr">请输入密码</string>
+    <string name="WarningLoginPage">第一次使用自动注册账号密码</string>
+
+</resources>

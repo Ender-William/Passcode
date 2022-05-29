@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey"
+    tools:context=".ContentActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|right">
+
+        <Button
+            android:id="@+id/LockBtn"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:text="L"
+            android:textSize="@dimen/dimen_15sp"/>
+
+        <Button
+            android:id="@+id/ChangePwdBtn"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:text="C"
+            android:textSize="@dimen/dimen_15sp"/>
+
+        <Button
+            android:id="@+id/ScanBtn"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:text="R"
+            android:textSize="@dimen/dimen_15sp"/>
+
+        <Button
+            android:id="@+id/AddItemBtn"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_marginRight="@dimen/dimen_15dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:text="+"
+            android:textSize="@dimen/dimen_20sp"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/MyMesgListView"/>
+
+</LinearLayout>
