@@ -70,9 +70,9 @@ public class EditItemActivity extends BaseActivity {
             SaveBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AppNameTemp = AppNameET.getText().toString();
-                    UserNameTemp = UserNameET.getText().toString();
-                    PasswdTemp = PasswdET.getText().toString();
+                    AppNameTemp = base64encoder(AppNameET.getText().toString());
+                    UserNameTemp = base64encoder(UserNameET.getText().toString());
+                    PasswdTemp = base64encoder(PasswdET.getText().toString());
                     myDAO.insertInfo(AppNameTemp, UserNameTemp, PasswdTemp);
                     NavigateWithAnimation(ContentActivity.class);
                     DelayEndActivity(600);
@@ -117,17 +117,17 @@ public class EditItemActivity extends BaseActivity {
             // ID 和 数据在List中的位置无法保持 +1 的状态
             // 因此需要将数据条目中的真正的ID读取出来
             String TempID = MapTemp.get("id").toString();
-            AppNameET.setText(MapTemp.get("appname").toString());
-            UserNameET.setText(MapTemp.get("username").toString());
-            PasswdET.setText(MapTemp.get("passwd").toString());
+            AppNameET.setText(base64decoder(MapTemp.get("appname").toString()));
+            UserNameET.setText(base64decoder(MapTemp.get("username").toString()));
+            PasswdET.setText(base64decoder(MapTemp.get("passwd").toString()));
 
             //按下保存键，进行数据的插入
             SaveBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AppNameTemp = AppNameET.getText().toString();
-                    UserNameTemp = UserNameET.getText().toString();
-                    PasswdTemp = PasswdET.getText().toString();
+                    AppNameTemp = base64encoder(AppNameET.getText().toString());
+                    UserNameTemp = base64encoder(UserNameET.getText().toString());
+                    PasswdTemp = base64encoder(PasswdET.getText().toString());
                     myDAO.updateInfo(TempID,AppNameTemp,UserNameTemp,PasswdTemp);
                     NavigateWithStringAnimation(ShowItemDetailActivity.class,flagID);
                     DelayEndActivity(600);

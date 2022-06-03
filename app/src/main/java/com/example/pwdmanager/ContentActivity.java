@@ -154,9 +154,9 @@ public class ContentActivity extends BaseActivity {
             MapTemp = MyListData.get(position);
 
 //            id.setText(MapTemp.get("id").toString());
-            appname.setText(MapTemp.get("appname").toString());
-            username.setText(MapTemp.get("username").toString());
-            passwd.setText(MapTemp.get("passwd").toString());
+            appname.setText(base64decoder(MapTemp.get("appname").toString()));
+            username.setText(base64decoder(MapTemp.get("username").toString()));
+            passwd.setText(base64decoder(MapTemp.get("passwd").toString()));
             iv.setBackgroundResource(R.drawable.app_icon);
 
             return newview;

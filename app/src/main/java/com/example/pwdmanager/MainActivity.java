@@ -41,6 +41,8 @@ public class MainActivity extends BaseActivity {
         UserNameET = findViewById(R.id.LoginUserNameET);
         PwdET = findViewById(R.id.LoginPwdET);
 
+        UpdateVersionState();
+
         LoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +60,8 @@ public class MainActivity extends BaseActivity {
          * 如果是第一次使用：自动注册输入的用户名和密码
          * 如果是使用过了，通过获取SharedPreference中保存的信息，进行对比，来完成登录
          */
+
+
 
         //获取用户名和密码
         UserNameStr = UserNameET.getText().toString();

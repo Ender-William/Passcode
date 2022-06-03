@@ -1,3 +1,21 @@
+# Version 1.1 更新 2022-06-04
+
+增加了加密功能，原有的软件数据应该是可以完全升级上来的，这里的加密功能使用的是`java`的`base64`方法进行加密处理
+
+原有的`SharedPreference`里面添加了`version`信息的说明
+
+```xml
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="flag">used</string>
+    <string name="pwd">test</string>
+    <string name="user">root</string>
+    <string name="version">1.1</string>
+</map>
+```
+
+
+
 # 简介
 
 ***Passcode***是一个离线式的密码管理软件，第一次使用的时候，会在本机自动注册用户名或密码，这个用户名和密码需要牢记，因为在这一版本账号和密码不可更改。

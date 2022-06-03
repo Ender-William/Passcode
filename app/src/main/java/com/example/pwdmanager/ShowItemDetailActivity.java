@@ -83,9 +83,9 @@ public class ShowItemDetailActivity extends BaseActivity {
         //找出目标位置，这里使用的是从 0 开始计数的 position
         MapTemp = MyListData.get(position);
 
-        AppNameTV.setText(MapTemp.get("appname").toString());
-        UserNameTV.setText(MapTemp.get("username").toString());
-        PasswdTV.setText(MapTemp.get("passwd").toString());
+        AppNameTV.setText(base64decoder(MapTemp.get("appname").toString()));
+        UserNameTV.setText(base64decoder(MapTemp.get("username").toString()));
+        PasswdTV.setText(base64decoder(MapTemp.get("passwd").toString()));
 
 
 
