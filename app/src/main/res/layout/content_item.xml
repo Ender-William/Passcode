@@ -34,13 +34,13 @@
             android:maxLines="1"
             android:maxEms="12"
             android:ellipsize="end"
-            android:textColor="@color/ligth_white"
+            android:textColor="@color/black"
             android:id="@+id/MyMesgLVAppName"
             android:gravity="center_vertical|left"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_30dp"
-            android:textColor="@color/grey"
+            android:textColor="@color/black"
             android:id="@+id/MyMesgLVShowMesg"
             android:orientation="horizontal">
             <TextView
@@ -51,7 +51,7 @@
                 android:maxLines="1"
                 android:maxEms="6"
                 android:ellipsize="end"
-                android:textColor="@color/ligth_white"
+                android:textColor="@color/black"
                 android:id="@+id/MyMesgLVUserName"
                 android:gravity="center_vertical|left"/>
             <TextView
@@ -61,7 +61,7 @@
                 android:maxLines="1"
                 android:maxEms="6"
                 android:ellipsize="end"
-                android:textColor="@color/ligth_white"
+                android:textColor="@color/black"
                 android:id="@+id/MyMesgLVPasswd"
                 android:gravity="center_vertical|left"/>
         </LinearLayout>

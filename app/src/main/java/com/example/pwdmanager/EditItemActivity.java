@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.example.pwdmanager.Dao.itemsDao;
 
@@ -23,8 +24,8 @@ public class EditItemActivity extends BaseActivity {
     private List<Map<String,Object>> MyListData = new ArrayList<>();
     private Map<String,Object> DataItem;
 
-    private Button SaveBtn;
-    private Button BackBtn;
+    private ImageButton SaveBtn;
+    private ImageButton BackBtn;
 
     private EditText AppNameET;
     private EditText UserNameET;

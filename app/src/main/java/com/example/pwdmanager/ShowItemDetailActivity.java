@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.pwdmanager.Dao.itemsDao;
@@ -24,9 +25,9 @@ public class ShowItemDetailActivity extends BaseActivity {
     private TextView AppNameTV;
     private TextView UserNameTV;
     private TextView PasswdTV;
-    private Button BackBtn;
-    private Button EditBtn;
-    private Button DelBtn;
+    private ImageButton BackBtn;
+    private ImageButton EditBtn;
+    private ImageButton DelBtn;
 
     @Override
     protected int initLayout() {

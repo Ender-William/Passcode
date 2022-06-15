@@ -14,19 +14,21 @@
         android:orientation="horizontal"
         android:gravity="center_vertical|right">
 
-        <Button
+        <ImageButton
             android:id="@+id/CanceldBtn"
             android:layout_width="@dimen/dimen_50dp"
             android:layout_height="@dimen/dimen_50dp"
             android:text="B"
+            android:src="@drawable/back"
             android:textSize="@dimen/dimen_15sp"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/AddBtn"
             android:layout_width="@dimen/dimen_50dp"
             android:layout_marginRight="@dimen/dimen_15dp"
             android:layout_height="@dimen/dimen_50dp"
             android:text="S"
+            android:src="@drawable/save"
             android:textSize="@dimen/dimen_15sp"/>
 
     </LinearLayout>

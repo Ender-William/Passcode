@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -31,9 +32,9 @@ public class ContentActivity extends BaseActivity {
     private Map<String,Object> DataItem;  //用于保存每一条数据项
 
     private Button AddItemBtn;
-    private Button RefreshBtn;
-    private Button ChangePwdBtn;
-    private Button LockActivityBtn;
+    private ImageButton RefreshBtn;
+    private ImageButton ChangePwdBtn;
+    private ImageButton LockActivityBtn;
 
     private String IDTemp;
 

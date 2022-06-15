@@ -184,11 +184,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void UpdateVersionState(){
 
-        // Version1.0 --> Version1.1 先调用SharedPreference查看
+        // Version1.1 --> Version1.1.1 先调用SharedPreference查看
         // 需要先判断储存在SharedPreference里的版本号，根据版本号进行选择
         // 由于上一个版本的SharedPreference里面没有version信息
         // 因此通过判断SharedPreference里面是否含有version信息
-        // 来判断是 1.0 版本还是 1.1 版本
+        // 来判断是 1.0 版本还是 1.1 版本还是 1.1.1
         // 用来储存版本信息的键 "version"
         String spName = "login_state_sp";
 
@@ -198,10 +198,15 @@ public abstract class BaseActivity extends AppCompatActivity {
             String VersionTemp = null;
             VersionTemp = GetStringSharedPreferencesContains(spName,"version");
             if (GetStringSharedPreferencesContains(spName,"version").equals("1.1")){
-                // 如果版本号是 1.1
-                showToast("数据库检查无误");
-            } else {
-                // 如果版本不是 1.1
+                // 如果版本号是 1.1，将版本号更新到 1.1.1
+                SaveStringToSharedPreferences(spName, "version", "1.1.1");
+            }
+            if (GetStringSharedPreferencesContains(spName,"version").equals("1.1.1")){
+                // 如果是最新版
+                showToast("是最新版 1.1.1");
+            }
+            else {
+                // 如果版本不是 1.1或1.1.1
                 // 只有 1.1 及之后的才有 version 因此这里只可能是 1.1 版本之后的版本
                 // 需要提示用户软件不可以降级使用，并在1.5秒后退出应用
                 showToast("请勿降级使用软件");

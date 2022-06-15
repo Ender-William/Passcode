@@ -14,25 +14,28 @@
         android:orientation="horizontal"
         android:gravity="center_vertical|right">
 
-        <Button
+        <ImageButton
             android:id="@+id/LockBtn"
             android:layout_width="@dimen/dimen_50dp"
             android:layout_height="@dimen/dimen_50dp"
             android:text="L"
+            android:src="@drawable/lock"
             android:textSize="@dimen/dimen_15sp"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/ChangePwdBtn"
             android:layout_width="@dimen/dimen_50dp"
             android:layout_height="@dimen/dimen_50dp"
             android:text="C"
+            android:src="@drawable/edit"
             android:textSize="@dimen/dimen_15sp"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/ScanBtn"
             android:layout_width="@dimen/dimen_50dp"
             android:layout_height="@dimen/dimen_50dp"
             android:text="R"
+            android:src="@drawable/refresh"
             android:textSize="@dimen/dimen_15sp"/>
 
         <Button
