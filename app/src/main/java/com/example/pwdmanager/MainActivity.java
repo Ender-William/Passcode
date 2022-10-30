@@ -12,9 +12,12 @@ import com.example.pwdmanager.Dao.itemsDao;
 public class MainActivity extends BaseActivity {
 
     private itemsDao myDAO;
+
     private Button LoginBtn;
+
     private EditText UserNameET;
     private EditText PwdET;
+
     private String UserNameStr;
     private String PwdStr;
 
@@ -41,6 +44,10 @@ public class MainActivity extends BaseActivity {
         UserNameET = findViewById(R.id.LoginUserNameET);
         PwdET = findViewById(R.id.LoginPwdET);
 
+        // 软件版本检测
+        // 用于检测数据库是否需要更新
+        // 旧版本的数据库为明文保存方式
+        // 新版本数据库为 Base64 编码的保存方式
         UpdateVersionState();
 
         LoginBtn.setOnClickListener(new View.OnClickListener() {
@@ -61,58 +68,62 @@ public class MainActivity extends BaseActivity {
          * 如果是使用过了，通过获取SharedPreference中保存的信息，进行对比，来完成登录
          */
 
-
-
-        //获取用户名和密码
+        // 获取用户名和密码
         UserNameStr = UserNameET.getText().toString();
         PwdStr = PwdET.getText().toString();
 
         //确定数据库的名称
         String spName = "login_state_sp";
-        //showToast("2");
+        // showToast("2");
 
-        //读取SharedPreference中是否有flag标签，有代表并非第一次安装使用，没有代表第一次安装使用
+        // 读取SharedPreference中是否有flag标签，有代表并非第一次安装使用，没有代表第一次安装使用
         if (CheckisSharedPreferencesContains("login_state_sp", "flag")) {
-            //已经注册过，并非第一次使用
+            // 已经注册过，并非第一次使用
             //showToast("3");
             String UserNameTempStr;
             String PwdTempStr;
-            //获取用户名和密码
+            // 获取用户名和密码
             UserNameTempStr = GetStringSharedPreferencesContains(spName, "user");
             PwdTempStr = GetStringSharedPreferencesContains(spName, "pwd");
-            //进行比对
+            // 进行比对
             if (UserNameStr.equals(UserNameTempStr) && PwdStr.equals(PwdTempStr)) {
-                //用户名和密码都正确
+                // 用户名和密码都正确
                 NavigateWithAnimation(ContentActivity.class);
                 DelayEndActivity(1000);
             } else {
-                //用户名或密码有一项错误
-                //showToast(UserNameTempStr+PwdTempStr);
+                // 用户名或密码有一项错误
+                // showToast(UserNameTempStr+PwdTempStr);
                 showToast("用户名或密码有误");
             }
         } else {
-            //showToast("1");
-            //第一次使用
-            //需要先判断用户输入的密码或字符串是否为空
+            // showToast("1");
+            // 第一次使用
+            // 需要先判断用户输入的密码或字符串是否为空
             if (UserNameStr.length() == 0 || PwdStr.length() == 0) {
-                //如果用户名或密码为空
+                // 如果用户名或密码为空
                 showToast("用户名或密码不得为空");
             } else {
-                //如果用户名或密码不为空
+                // 如果用户名或密码不为空
                 myDAO = new itemsDao(this);
-                //if (myDAO.getRecordsNumber() == 0) {
-                //数据库内为空，没有内容，添加两条示例
-                myDAO.insertInfo("This is your app name", "this is your username", "your password");
-                myDAO.insertInfo("Microsoft Outlook", "xxxxxx@xxx.outlook", "your password");
-                //Activityreload(); //刷新当前Activity用于加载Activity中ListView的数据
+                // if (myDAO.getRecordsNumber() == 0) {
+                // 当前版本数据库保存的均为经 Base64 编码的数据
+                // 因此加入的样例数据也为 Base64 编码过的数据
+                // 数据库内为空，没有内容，添加两条示例
+                myDAO.insertInfo(base64encoder("This is your app name"),
+                        base64encoder("this is your username"),
+                        base64encoder("your password"));
+                myDAO.insertInfo(base64encoder("Microsoft Outlook"),
+                        base64encoder("xxxxxx@xxx.outlook"),
+                        base64encoder("your password"));
+                // Activityreload(); //刷新当前Activity用于加载Activity中ListView的数据
 
-                //保存使用状态
+                // 保存使用状态
                 SaveStringToSharedPreferences(spName, "flag", "used");
-                //保存账号名
+                // 保存账号名
                 SaveStringToSharedPreferences(spName, "user", UserNameStr);
-                //保存密码
+                // 保存密码
                 SaveStringToSharedPreferences(spName, "pwd", PwdStr);
-                //跳转页面
+                // 跳转页面
                 NavigateWithAnimation(ContentActivity.class);
                 DelayEndActivity(1000);
             }

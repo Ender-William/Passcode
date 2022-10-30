@@ -190,8 +190,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         // 因此通过判断SharedPreference里面是否含有version信息
         // 来判断是 1.0 版本还是 1.1 版本还是 1.1.1
         // 用来储存版本信息的键 "version"
-        String spName = "login_state_sp";
 
+        String spName = "login_state_sp";
 
         if (CheckisSharedPreferencesContains(spName,"version")){
             // 存在version信息，需要先判断版本信息是否为 1.1 如果不是需要提出警告并终止程序
@@ -202,8 +202,12 @@ public abstract class BaseActivity extends AppCompatActivity {
                 SaveStringToSharedPreferences(spName, "version", "1.1.1");
             }
             if (GetStringSharedPreferencesContains(spName,"version").equals("1.1.1")){
+                // 如果版本号是 1.1.1，将版本号更新到 1.1.2
+                SaveStringToSharedPreferences(spName, "version", "1.1.2");
+            }
+            if (GetStringSharedPreferencesContains(spName,"version").equals("1.1.2")){
                 // 如果是最新版
-                showToast("是最新版 1.1.1");
+                showToast("是最新版 1.1.2");
             }
             else {
                 // 如果版本不是 1.1或1.1.1
@@ -243,7 +247,8 @@ public abstract class BaseActivity extends AppCompatActivity {
                 String passwd = base64encoder(cursor.getString(3));
                 myDAO.updateInfo(id,appname,username,passwd);
             }
-            SaveStringToSharedPreferences(spName, "version", "1.1");
+            // 将版本号升级到当前版本
+            SaveStringToSharedPreferences(spName, "version", "1.1.2");
             showToast("完成数据库升级");
         }
     }
